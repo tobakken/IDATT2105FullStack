@@ -1,0 +1,40 @@
+body{
+    font-family: "Courier New", sans-serif;
+    text-align: center;
+    background-image: url("eksempelbakgrunn.jpg");
+    background-repeat: repeat-x;
+}
+
+.grid-container {
+    display: inline-grid;
+    opacity: 0.9;
+}
+.grid-item {
+    background-color: #AAA;
+    grid-row-start: span;
+}
+
+h1 {
+    padding-top: 20px;
+}
+
+p {
+    margin: 50px;
+}
+
+button {
+    margin-bottom: 20px;
+}
+
+#secret {
+    display: none;
+}
+
+#list {
+    text-align: left;
+}
+
+footer {
+    font-family: "Times New Roman", sans-serif;
+    margin: 75px
+}
