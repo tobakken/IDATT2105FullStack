@@ -18,3 +18,9 @@ export default {
   }
 }
 </script>
+
+<style>
+p {
+  margin-bottom: 24px;
+}
+</style>

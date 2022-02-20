@@ -5,7 +5,14 @@ export default createStore({
         name:"",
         email: "",
         status: ""
+    },
+    mutations: {
+        SET_NAME(state, name) {
+            state.name = name
+        },
+        SET_EMAIL(state, email) {
+            state.email = email
+        }
     }
 })
 
-//TODO: Add functionality for saving name,email and status to state.

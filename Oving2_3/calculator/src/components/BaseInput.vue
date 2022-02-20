@@ -10,17 +10,17 @@
       @input="$emit('update:modelValue', $event.target.value)"
       class="field"
       :placeholder="label"
+      :aria-invalid="error ? true : false"
       :class="{error}"
   >
-  <BaseErrorMessage
+  <p class="errorMessage"
       v-if="error"
   >
     {{ error }}
-  </BaseErrorMessage>
+  </p>
 </template>
 
 <script>
-import BaseErrorMessage from "./BaseErrorMessage";
 
 export default {
   props: {
@@ -36,7 +36,6 @@ export default {
       type: String,
       default: ''
     }
-  },
-  components: BaseErrorMessage
+  }
 }
 </script>

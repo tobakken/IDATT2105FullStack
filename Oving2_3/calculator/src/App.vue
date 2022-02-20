@@ -14,7 +14,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
@@ -36,23 +35,5 @@ form {
   padding: 50px 0 ;
 }
 
-.field {
-  margin-bottom: 24px;
-}
-
-input,
-text{
-  display: inline-flex;
-  font-family: "Open sans", sans-serif;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 10px;
-}
-.error {
-  border: 1px solid red;
-}
-.errorMessage {
-  color:red;
-}
 
 </style>
