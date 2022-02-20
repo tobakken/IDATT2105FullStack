@@ -4,11 +4,10 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Calculator from "../components/Calculator";
 
 export default {
-  name: "Home",
+  name: "Calculator",
   components: {
     Calculator
   },
