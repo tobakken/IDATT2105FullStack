@@ -27,6 +27,7 @@
 import BaseInput from "../components/BaseInput";
 import {ref} from "vue";
 import {useRouter} from "vue-router";
+import { useStore } from "vuex"
 
 export default {
   name: 'Login',
@@ -41,15 +42,19 @@ export default {
     const router = useRouter()
     const validationSuccess = ref(false)
     const validationFailed = ref(false)
+    const store = useStore()
 
     const submit = () => {
       if (username.value === "admin" && password.value === "admin"){
         validationSuccess.value = true
+        store.commit("SET_NAME", "admin")
+        store.commit("SET_STATUS", "Validation success")
         setTimeout(() => {
           router.push( {name: "Calculator"} )
         }, 1500)
       } else {
         validationFailed.value = true
+        store.commit("SET_STATUS", "Validation failed")
       }
     }
 

@@ -12,6 +12,9 @@ export default createStore({
         },
         SET_EMAIL(state, email) {
             state.email = email
+        },
+        SET_STATUS(state, status) {
+            state.status = status
         }
     }
 })

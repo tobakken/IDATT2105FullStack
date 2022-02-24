@@ -1,5 +1,5 @@
 <template>
-  <div class="calc-body">
+  <div class="calc-body" v-if="this.loginSuccess">
     <div class="input">
       {{ calculatorValue || 0 }}
     </div>
@@ -30,6 +30,7 @@ export default {
   name: "Calculator",
   data() {
     return {
+      loginStatus: this.$store.state.status,
       calculatorValue: "",
       prevCalcValue: "",
       operator: null,
@@ -82,6 +83,11 @@ export default {
       }
     },
   },
+  computed: {
+    loginSuccess(){
+      return (this.loginStatus === "Validation success")
+    }
+  }
 };
 </script>
 
