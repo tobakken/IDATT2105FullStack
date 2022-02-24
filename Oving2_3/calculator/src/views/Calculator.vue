@@ -1,6 +1,6 @@
 <template>
   <div class="heading">Calculator</div>
-    <Calculator />
+  <Calculator />
 </template>
 
 <script>
@@ -9,7 +9,7 @@ import Calculator from "../components/Calculator";
 export default {
   name: "Calculator",
   components: {
-    Calculator
+    Calculator,
   },
 };
 </script>
@@ -20,5 +20,4 @@ export default {
   font-weight: bold;
   margin-top: 100px;
 }
-
 </style>

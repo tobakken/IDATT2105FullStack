@@ -68,7 +68,7 @@ export default {
         this.calculatorValue = "";
       }
       if (["/", "+", "-", "*"].includes(n)) {
-        if (this.operator === null){
+        if (this.operator === null) {
           this.operator = n;
           this.prevCalcValue = this.calculatorValue;
           this.calculatorValue = "";
@@ -76,7 +76,7 @@ export default {
       }
       if (n === "=") {
         const result =
-            this.prevCalcValue + this.operator + this.calculatorValue;
+          this.prevCalcValue + this.operator + this.calculatorValue;
         this.calculatorValue = eval(result);
         this.calculatorLog.push(result + "=" + this.calculatorValue);
         this.operator = null;
@@ -84,10 +84,10 @@ export default {
     },
   },
   computed: {
-    loginSuccess(){
-      return (this.loginStatus === "Validation success")
-    }
-  }
+    loginSuccess() {
+      return this.loginStatus === "Validation success";
+    },
+  },
 };
 </script>
 

@@ -7,7 +7,7 @@ const routes = [
   {
     path: "/",
     name: "Login",
-    component: Login
+    component: Login,
   },
   {
     path: "/calculator",
@@ -17,8 +17,8 @@ const routes = [
   {
     path: "/contact",
     name: "Contact",
-    component: Contact
-  }
+    component: Contact,
+  },
 ];
 
 const router = createRouter({

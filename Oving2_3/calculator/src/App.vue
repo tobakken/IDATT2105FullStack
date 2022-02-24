@@ -32,8 +32,6 @@
 form {
   width: 100px;
   margin: auto;
-  padding: 50px 0 ;
+  padding: 50px 0;
 }
-
-
 </style>
