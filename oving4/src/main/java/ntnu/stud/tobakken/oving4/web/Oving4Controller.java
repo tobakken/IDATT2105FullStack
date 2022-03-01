@@ -2,14 +2,19 @@ package ntnu.stud.tobakken.oving4.web;
 
 import ntnu.stud.tobakken.oving4.model.Oving4Model;
 import ntnu.stud.tobakken.oving4.service.Oving4Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @CrossOrigin
 public class Oving4Controller {
+
+    Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     private Oving4Service simpleCalc;
@@ -28,7 +33,7 @@ public class Oving4Controller {
             @PathVariable("sign") String sign,
             @PathVariable("number2") String number2
             ) {
-        System.out.println("GET calculation");
+        LOG.info("received GET request for calculation");
 
         equation.setNumber1(number1);
         equation.setSign(sign);
@@ -52,7 +57,7 @@ public class Oving4Controller {
                 res = 0;
                 break;
         }
-        System.out.println(res);
+        LOG.info("Finished calculation");
         return res;
     }
 

@@ -13,16 +13,9 @@ export default {
     getCalculation(number1, sign, number2){
         return apiClient
             .get("/calculate/" + number1 + "/" + sign + "/" + number2)
-            .then(sleeper(1000))
     },
 
     getPrevCalc() {
         return apiClient.get("/previousCalc")
-    }
-}
-
-function sleeper(ms) {
-    return function(x) {
-        return new Promise(resolve => setTimeout(() => resolve(x), ms))
     }
 }

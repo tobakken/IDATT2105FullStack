@@ -78,22 +78,16 @@ export default {
         } else this.operator = n;
       }
       if (n === "=") {
-        console.log(this.prevCalcValue)
-        console.log(this.operator)
-        console.log(this.calculatorValue)
-
         CalculatorService.getCalculation(
           this.prevCalcValue,
           this.operator,
           this.calculatorValue)
             .then((res) => {
               this.result = String(res.data)
+              this.calculatorLog.push(this.prevCalcValue + this.operator + this.calculatorValue + " = " + this.result)
+              this.calculatorValue = this.result;
+              this.operator = null;
             })
-        console.log(this.result);
-        this.calculatorLog.push(this.prevCalcValue + this.operator + this.calculatorValue + " = " + this.result)
-        this.calculatorValue = this.result;
-        this.prevCalcValue = null;
-        this.operator = null;
       }
     },
   },
