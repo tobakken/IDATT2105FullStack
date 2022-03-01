@@ -26,10 +26,13 @@
 </template>
 
 <script>
+import CalculatorService from "@/services/CalculatorService";
+
 export default {
   name: "Calculator",
   data() {
     return {
+      result: "",
       calculatorValue: "",
       prevCalcValue: "",
       operator: null,
@@ -74,10 +77,21 @@ export default {
         } else this.operator = n;
       }
       if (n === "=") {
-        const result =
-            this.prevCalcValue + this.operator + this.calculatorValue;
-        this.calculatorValue = eval(result);
-        this.calculatorLog.push(result + "=" + this.calculatorValue);
+        console.log(this.prevCalcValue)
+        console.log(this.operator)
+        console.log(this.calculatorValue)
+
+        CalculatorService.getCalculation(
+          this.prevCalcValue,
+          this.operator,
+          this.calculatorValue)
+            .then((res) => {
+              this.result = String(res.data)
+            })
+        console.log(this.result);
+        this.calculatorLog.push(this.prevCalcValue + this.operator + this.calculatorValue + " = " + this.result)
+        this.calculatorValue = this.result;
+        this.prevCalcValue = null;
         this.operator = null;
       }
     },
