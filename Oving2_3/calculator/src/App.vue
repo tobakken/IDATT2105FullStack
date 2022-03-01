@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link :to="{ name: 'Home' }">Calculator</router-link> |
+      <router-link :to="{ name: 'Calculator' }">Calculator</router-link> |
       <router-link :to="{ name: 'Contact' }">Contact</router-link>
     </div>
   </div>
@@ -14,7 +14,6 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
@@ -33,26 +32,6 @@
 form {
   width: 100px;
   margin: auto;
-  padding: 50px 0 ;
+  padding: 50px 0;
 }
-
-.field {
-  margin-bottom: 24px;
-}
-
-input,
-text{
-  display: inline-flex;
-  font-family: "Open sans", sans-serif;
-  font-size: 100%;
-  line-height: 1.15;
-  margin: 10px;
-}
-.error {
-  border: 1px solid red;
-}
-.errorMessage {
-  color:red;
-}
-
 </style>

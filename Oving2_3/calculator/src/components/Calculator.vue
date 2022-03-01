@@ -1,5 +1,5 @@
 <template>
-  <div class="calc-body">
+  <div class="calc-body" v-if="this.loginSuccess">
     <div class="input">
       {{ calculatorValue || 0 }}
     </div>
@@ -33,6 +33,7 @@ export default {
   data() {
     return {
       result: "",
+      loginStatus: this.$store.state.status,
       calculatorValue: "",
       prevCalcValue: "",
       operator: null,
@@ -70,7 +71,7 @@ export default {
         this.calculatorValue = "";
       }
       if (["/", "+", "-", "*"].includes(n)) {
-        if (this.operator === null){
+        if (this.operator === null) {
           this.operator = n;
           this.prevCalcValue = this.calculatorValue;
           this.calculatorValue = "";
@@ -94,6 +95,11 @@ export default {
         this.prevCalcValue = null;
         this.operator = null;
       }
+    },
+  },
+  computed: {
+    loginSuccess() {
+      return this.loginStatus === "Validation success";
     },
   },
 };
