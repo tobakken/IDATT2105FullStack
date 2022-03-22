@@ -2,6 +2,7 @@ package ntnu.stud.tobakken.oving5.web;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
 import ntnu.stud.tobakken.oving5.model.Oving5Model;
 import ntnu.stud.tobakken.oving5.repository.EquationRepository;
 import ntnu.stud.tobakken.oving5.service.Oving5Service;
@@ -30,33 +31,35 @@ public class Oving5Controller {
         return String.format("Hello %s", name);
     }
 
-    @PostMapping("/calculate/{number1}/{sign}/{number2}")
-    public double result(
-            @PathVariable("number1") String number1,
-            @PathVariable("sign") String sign,
-            @PathVariable("number2") String number2
-            ) {
-        LOG.info("received GET request for calculation");
+    @PostMapping("/calculate")
+    public double result(@RequestParam Map<String, String> eq ) {
+        LOG.info("received POST request for calculation");
+        System.out.println(eq.entrySet());
+        double number1 = Double.parseDouble(eq.get("first_number"));
+        String sign = eq.get("sign");
+        double number2 = Double.parseDouble(eq.get("second_number"));
+
+        System.out.println(number1 + sign + number2);
 
         double res;
         switch (sign) {
             case "+":
-                res = simpleCalc.add(Double.parseDouble(number1), Double.parseDouble(number2));
+                res = simpleCalc.add(number1, number2);
                 break;
             case "-":
-                res = simpleCalc.subtract(Double.parseDouble(number1), Double.parseDouble(number2));
+                res = simpleCalc.subtract(number1, number2);
                 break;
             case "*":
-                res = simpleCalc.multiply(Double.parseDouble(number1), Double.parseDouble(number2));
+                res = simpleCalc.multiply(number1, number2);
                 break;
-            case "div":
-                res = simpleCalc.divide(Double.parseDouble(number1), Double.parseDouble(number2));
+            case "/":
+                res = simpleCalc.divide(number1, number2);
                 break;
             default:
                 res = 0;
                 break;
         }
-        equationRepository.save(new Oving5Model(number1, sign, number2, String.valueOf(res)));
+        equationRepository.save(new Oving5Model(String.valueOf(number1), sign, String.valueOf(number2), String.valueOf(res)));
 
         LOG.info("Finished calculation");
         return res;
@@ -68,7 +71,11 @@ public class Oving5Controller {
         try {
             List<Oving5Model> equations = new ArrayList<Oving5Model>();
             equationRepository.findAll().forEach(equations::add);
-            if(equations.isEmpty()) return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            System.out.println(equations.toString());
+            if(equations.isEmpty()) {
+                System.out.println("Here");
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
             return new ResponseEntity<>(equations, HttpStatus.OK);
         } catch (Exception e){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
