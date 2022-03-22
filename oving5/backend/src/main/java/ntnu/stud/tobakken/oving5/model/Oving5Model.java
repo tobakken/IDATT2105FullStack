@@ -1,6 +1,5 @@
 package ntnu.stud.tobakken.oving5.model;
 
-import org.springframework.stereotype.Component;
 import javax.persistence.*;
 
 @Entity
@@ -8,7 +7,7 @@ import javax.persistence.*;
 public class Oving5Model {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "first_number")
     private String number1;
@@ -60,12 +59,6 @@ public class Oving5Model {
 
     public void setResult(String result) {
         this.result = result;
-    }
-
-    public void reset(){
-        this.number1 = null;
-        this.number2 = null;
-        this.sign = null;
     }
 
     @Override

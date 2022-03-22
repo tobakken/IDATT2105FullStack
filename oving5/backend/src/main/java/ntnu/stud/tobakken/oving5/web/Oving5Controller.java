@@ -36,7 +36,7 @@ public class Oving5Controller {
             @PathVariable("sign") String sign,
             @PathVariable("number2") String number2
             ) {
-        LOG.info("received POST request for calculation");
+        LOG.info("received GET request for calculation");
 
         double res;
         switch (sign) {
