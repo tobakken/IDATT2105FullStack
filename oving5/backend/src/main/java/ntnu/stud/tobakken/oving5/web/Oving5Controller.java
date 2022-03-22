@@ -1,6 +1,9 @@
 package ntnu.stud.tobakken.oving5.web;
 
+import java.util.List;
+import java.util.ArrayList;
 import ntnu.stud.tobakken.oving5.model.Oving5Model;
+import ntnu.stud.tobakken.oving5.repository.EquationRepository;
 import ntnu.stud.tobakken.oving5.service.Oving5Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,24 +23,20 @@ public class Oving5Controller {
     private Oving5Service simpleCalc;
 
     @Autowired
-    private Oving5Model equation;
+    private EquationRepository equationRepository;
 
     @GetMapping("/hello/{name}")
     public String hello(@PathVariable("name") String name) {
         return String.format("Hello %s", name);
     }
 
-    @GetMapping("/calculate/{number1}/{sign}/{number2}")
+    @PostMapping("/calculate/{number1}/{sign}/{number2}")
     public double result(
             @PathVariable("number1") String number1,
             @PathVariable("sign") String sign,
             @PathVariable("number2") String number2
             ) {
-        LOG.info("received GET request for calculation");
-
-        equation.setNumber1(number1);
-        equation.setSign(sign);
-        equation.setNumber2(number2);
+        LOG.info("received POST request for calculation");
 
         double res;
         switch (sign) {
@@ -57,16 +56,23 @@ public class Oving5Controller {
                 res = 0;
                 break;
         }
+        equationRepository.save(new Oving5Model(number1, sign, number2, String.valueOf(res)));
+
         LOG.info("Finished calculation");
         return res;
     }
 
-    @GetMapping("/previousCalc")
-    public ResponseEntity<String> previousCalculation(){
-        System.out.println("GET history");
-        String eq = equation.toString();
-        equation.reset();
-        return ResponseEntity.status(HttpStatus.OK).body(eq);
+    @GetMapping("/history")
+    public ResponseEntity<List<Oving5Model>> previousCalculation(){
+        LOG.info("Received GET request for history");
+        try {
+            List<Oving5Model> equations = new ArrayList<Oving5Model>();
+            equationRepository.findAll().forEach(equations::add);
+            if(equations.isEmpty()) return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(equations, HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }

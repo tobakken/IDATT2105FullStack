@@ -6,11 +6,29 @@ import javax.persistence.*;
 @Entity
 @Table(name="equations")
 public class Oving5Model {
-    private String number1;
-    private String sign;
-    private String number2;
 
-    public Oving5Model(){}
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    @Column(name = "first_number")
+    private String number1;
+    @Column(name = "sign")
+    private String sign;
+    @Column(name = "second_number")
+    private String number2;
+    @Column(name = "result")
+    private String result;
+
+    public Oving5Model(String number1, String sign, String number2, String result){
+        this.number1 = number1;
+        this.sign = sign;
+        this.number2 = number2;
+        this.result = result;
+    }
+
+    public int getId() {
+        return id;
+    }
 
     public String getNumber1() {
         return number1;
@@ -22,6 +40,10 @@ public class Oving5Model {
 
     public String getSign() {
         return sign;
+    }
+
+    public String getResult() {
+        return result;
     }
 
     public void setSign(String sign) {
@@ -36,6 +58,10 @@ public class Oving5Model {
         this.number2 = number2;
     }
 
+    public void setResult(String result) {
+        this.result = result;
+    }
+
     public void reset(){
         this.number1 = null;
         this.number2 = null;
@@ -44,6 +70,6 @@ public class Oving5Model {
 
     @Override
     public String toString() {
-        return number1 + sign + number2;
+        return "Equation: " + id + " " + number1 + " " + sign + " " + number2 + " = " + result;
     }
 }

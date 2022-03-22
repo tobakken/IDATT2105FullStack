@@ -78,7 +78,7 @@ export default {
         } else this.operator = n;
       }
       if (n === "=") {
-        CalculatorService.getCalculation(
+        CalculatorService.postCalculation(
           this.prevCalcValue,
           this.operator,
           this.calculatorValue)

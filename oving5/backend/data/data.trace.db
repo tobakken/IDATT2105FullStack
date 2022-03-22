@@ -1,0 +1,3 @@
+2022-03-22 13:24:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "EQUATIONS" not found; SQL statement:
+select oving5mode0_.id as id1_0_, oving5mode0_.first_number as first_nu2_0_, oving5mode0_.second_number as second_n3_0_, oving5mode0_.result as result4_0_, oving5mode0_.sign as sign5_0_ from equations oving5mode0_ [42102-200]

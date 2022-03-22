@@ -10,12 +10,12 @@ const apiClient = axios.create({
 })
 
 export default {
-    getCalculation(number1, sign, number2){
+    postCalculation(number1, sign, number2){
         return apiClient
-            .get("/calculate/" + number1 + "/" + sign + "/" + number2)
+            .post("/calculate/" + number1 + "/" + sign + "/" + number2)
     },
 
-    getPrevCalc() {
-        return apiClient.get("/previousCalc")
+    getHistoryCalc() {
+        return apiClient.get("/history")
     }
 }
