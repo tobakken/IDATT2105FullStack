@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: "http://localhost:8080",
+    baseURL: "http://localhost:8888",
     withCredentials: false,
     headers: {
         Accept: "application/json",
@@ -10,12 +10,27 @@ const apiClient = axios.create({
 })
 
 export default {
-    postCalculation(number1, sign, number2){
+    postCalculation(number1, sign, number2, id){
         return apiClient
-            .post("/calculate/" + number1 + "/" + sign + "/" + number2)
+            .post("/equation/calculate/", {
+                first_number: number1,
+                sign: sign,
+                second_number: number2,
+                id: id
+            }).then((response) => {
+                return response.data
+            })
+            .catch(() => {
+                return "Unable to calculate"
+            })
     },
 
-    getHistoryCalc() {
-        return apiClient.get("/history")
+    getHistoryCalc(id) {
+        return apiClient.get("equation/history/" + `${id}`).then((response) => {
+            return response.data
+        })
+        .catch(() => {
+            return false
+        })
     }
 }

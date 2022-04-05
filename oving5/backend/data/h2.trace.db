@@ -1,0 +1,23 @@
+2022-04-05 17:03:40 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROPT[*] TABLE EQUATIONS"; expected "DELETE, DROP, DECLARE, DEALLOCATE"; SQL statement:
+DROPT TABLE EQUATIONS [42001-200]
+2022-04-05 18:33:42 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EQUATION VALUES(6, 2.5, 2, 4.5, +,[*] 1)
+SELECT * FROM EQUATION"; SQL statement:
+INSERT INTO EQUATION VALUES(6, 2.5, 2, 4.5, +, 1)
+SELECT * FROM EQUATION [42000-200]
+2022-04-05 18:33:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EQUATION VALUES(6, 2.5, 2, 4.5, +,[*] 1)"; SQL statement:
+INSERT INTO EQUATION VALUES(6, 2.5, 2, 4.5, +, 1) [42000-200]
+2022-04-05 18:34:04 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EQUATION VALUES(6, 2.5, 2.0, 4.5, +,[*] 1)"; SQL statement:
+INSERT INTO EQUATION VALUES(6, 2.5, 2.0, 4.5, +, 1) [42000-200]
+2022-04-05 18:34:15 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EQUATION VALUES( 2.5, 2.0, 4.5, +,[*] 1)"; SQL statement:
+INSERT INTO EQUATION VALUES( 2.5, 2.0, 4.5, +, 1) [42000-200]
+2022-04-05 18:34:20 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EQUATION VALUES(2.5, 2.0, 4.5, +,[*] 1)"; SQL statement:
+INSERT INTO EQUATION VALUES(2.5, 2.0, 4.5, +, 1) [42000-200]
+2022-04-05 18:34:58 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO EQUATION (NUMBER1, NUMBER2, RESULT, SIGN, USER_ID) VALUES(2.5, 2.0, 4.5, +,[*] 1)"; SQL statement:
+INSERT INTO EQUATION (NUMBER1, NUMBER2, RESULT, SIGN, USER_ID) VALUES(2.5, 2.0, 4.5, +, 1) [42000-200]

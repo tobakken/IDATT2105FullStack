@@ -18,9 +18,10 @@
     </div>
   </div>
   <div class="log">
+    <button @click="logBtnClicked()">Click here for log</button>
     <p>Previous input:</p>
     <div v-for="ev in calculatorLog" :key="ev">
-      {{ ev }}
+      {{ ev.number1 }} {{ ev.sign }} {{ ev.number2 }} = {{ ev.result }}
     </div>
   </div>
 </template>
@@ -81,15 +82,20 @@ export default {
         CalculatorService.postCalculation(
           this.prevCalcValue,
           this.operator,
-          this.calculatorValue)
+          this.calculatorValue, 1)
             .then((res) => {
-              this.result = String(res.data)
-              this.calculatorLog.push(this.prevCalcValue + this.operator + this.calculatorValue + " = " + this.result)
+              this.result = String(res)
               this.calculatorValue = this.result;
               this.operator = null;
             })
       }
     },
+    logBtnClicked() {
+      CalculatorService.getHistoryCalc("1").then((data) => {
+        console.log(data)
+        this.calculatorLog = data
+      }) 
+    }
   },
   computed: {
     loginSuccess() {
