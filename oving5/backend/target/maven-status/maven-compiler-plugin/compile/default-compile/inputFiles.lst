@@ -1,5 +1,6 @@
-/Users/tobakken/Documents/NTNU/Fullstack/IDATT2105FullStack/oving5/backend/src/main/java/ntnu/stud/tobakken/oving5/model/Oving5Model.java
+/Users/tobakken/Documents/NTNU/Fullstack/IDATT2105FullStack/oving5/backend/src/main/java/ntnu/stud/tobakken/oving5/entity/Equation.java
 /Users/tobakken/Documents/NTNU/Fullstack/IDATT2105FullStack/oving5/backend/src/main/java/ntnu/stud/tobakken/oving5/Oving5Application.java
-/Users/tobakken/Documents/NTNU/Fullstack/IDATT2105FullStack/oving5/backend/src/main/java/ntnu/stud/tobakken/oving5/service/Oving5Service.java
+/Users/tobakken/Documents/NTNU/Fullstack/IDATT2105FullStack/oving5/backend/src/main/java/ntnu/stud/tobakken/oving5/entity/User.java
+/Users/tobakken/Documents/NTNU/Fullstack/IDATT2105FullStack/oving5/backend/src/main/java/ntnu/stud/tobakken/oving5/service/EquationService.java
 /Users/tobakken/Documents/NTNU/Fullstack/IDATT2105FullStack/oving5/backend/src/main/java/ntnu/stud/tobakken/oving5/web/Oving5Controller.java
 /Users/tobakken/Documents/NTNU/Fullstack/IDATT2105FullStack/oving5/backend/src/main/java/ntnu/stud/tobakken/oving5/repository/EquationRepository.java
