@@ -1,29 +1,33 @@
-package ntnu.stud.tobakken.oving5.model;
+package ntnu.stud.tobakken.oving5.entity;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name="equations")
-public class Oving5Model {
+public class Equation {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(name = "first_number")
+
     private String number1;
-    @Column(name = "sign")
+
     private String sign;
-    @Column(name = "second_number")
+
     private String number2;
-    @Column(name = "result")
+
     private String result;
 
-    public Oving5Model(String number1, String sign, String number2, String result){
+    @ManyToOne
+    private User user;
+
+    public Equation(String number1, String sign, String number2, String result){
         this.number1 = number1;
         this.sign = sign;
         this.number2 = number2;
         this.result = result;
     }
+
+    public Equation() {}
 
     public int getId() {
         return id;
@@ -59,6 +63,14 @@ public class Oving5Model {
 
     public void setResult(String result) {
         this.result = result;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

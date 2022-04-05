@@ -3,7 +3,7 @@ package ntnu.stud.tobakken.oving5.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Oving5Service {
+public class EquationService {
 
     public double add(double number1, double number2){
         return number1 + number2;

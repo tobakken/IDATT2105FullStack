@@ -1,10 +1,11 @@
 package ntnu.stud.tobakken.oving5.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import ntnu.stud.tobakken.oving5.entity.Equation;
+import org.springframework.data.repository.CrudRepository;
+
 import java.util.List;
+import java.util.Optional;
 
-import ntnu.stud.tobakken.oving5.model.Oving5Model;
-
-public interface EquationRepository extends JpaRepository<Oving5Model, Integer>{
-
+public interface EquationRepository extends CrudRepository<Equation, Integer> {
+    Optional<List<Equation>> findAllByUser_Id(Long id);
 }
