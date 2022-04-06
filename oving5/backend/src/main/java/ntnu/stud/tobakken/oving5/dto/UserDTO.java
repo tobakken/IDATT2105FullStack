@@ -8,4 +8,8 @@ public class UserDTO {
     public UserDTO(User user) {
         this.username = user.getUsername();
     }
+
+    public String getUsername() {
+        return username;
+    }
 }

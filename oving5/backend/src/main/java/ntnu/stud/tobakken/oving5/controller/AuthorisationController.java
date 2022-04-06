@@ -1,4 +1,4 @@
-package ntnu.stud.tobakken.oving5.web;
+package ntnu.stud.tobakken.oving5.controller;
 
 
 import io.jsonwebtoken.Claims;
@@ -18,8 +18,8 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/auth")
 @CrossOrigin
+@RequestMapping("/auth")
 public class AuthorisationController {
 
     public static String keyStr = "f8a24295-a964-415f-98ed-f090441c536d";

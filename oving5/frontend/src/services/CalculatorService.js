@@ -1,4 +1,5 @@
 import axios from "axios";
+import store from "../store";
 
 const apiClient = axios.create({
     baseURL: "http://localhost:8888",
@@ -10,27 +11,50 @@ const apiClient = axios.create({
 })
 
 export default {
-    postCalculation(number1, sign, number2, id){
-        return apiClient
-            .post("/equation/calculate/", {
-                first_number: number1,
-                sign: sign,
-                second_number: number2,
-                id: id
-            }).then((response) => {
-                return response.data
-            })
-            .catch(() => {
-                return "Unable to calculate"
-            })
+    
+    async getToken(username, password){
+        try {
+            const response = await apiClient.post("/auth/token", {
+                username: username,
+                password: password
+            });
+            return response.data;
+        } catch {
+            return "Wrong credentials";
+        }
     },
 
-    getHistoryCalc(id) {
-        return apiClient.get("equation/history/" + `${id}`).then((response) => {
-            return response.data
-        })
-        .catch(() => {
-            return false
-        })
+
+    async postCalculation(number1, sign, number2){
+        try {
+            const response = await apiClient
+                .post("/equation/calculate/", {
+                    first_number: number1,
+                    sign: sign,
+                    second_number: number2,
+                    username: store.state.username
+                }, {
+                    headers: {
+                        Authentication: `Bearer ${store.state.token}`
+                    }
+                });
+            return response.data;
+        } catch {
+            return "Unable to calculate";
+        }
+    },
+
+    async getHistoryCalc() {
+        console.log(store.state.token);
+        try {
+            const response = await apiClient.get("/equation/history/" + `${store.state.username}`, {
+                headers: {
+                    Authentication: `Bearer ${store.state.token}`
+                }
+            });
+            return response.data;
+        } catch {
+            return false;
+        }
     }
 }

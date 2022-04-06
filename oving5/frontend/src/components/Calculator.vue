@@ -91,7 +91,7 @@ export default {
       }
     },
     logBtnClicked() {
-      CalculatorService.getHistoryCalc("1").then((data) => {
+      CalculatorService.getHistoryCalc(this.$store.state.username).then((data) => {
         console.log(data)
         this.calculatorLog = data
       }) 

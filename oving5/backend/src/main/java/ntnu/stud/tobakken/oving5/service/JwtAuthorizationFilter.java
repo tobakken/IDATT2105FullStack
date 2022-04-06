@@ -3,7 +3,7 @@ package ntnu.stud.tobakken.oving5.service;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import ntnu.stud.tobakken.oving5.security.JwtProvider;
-import ntnu.stud.tobakken.oving5.web.AuthorisationController;
+import ntnu.stud.tobakken.oving5.controller.AuthorisationController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

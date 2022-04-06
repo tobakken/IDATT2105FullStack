@@ -21,6 +21,7 @@ import BaseInput from "../components/BaseInput";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
+import CalculatorService from "../services/CalculatorService"
 
 export default {
   name: "Login",
@@ -37,17 +38,19 @@ export default {
     const store = useStore();
 
     const submit = () => {
-      if (username.value === "admin" && password.value === "admin") {
-        validationSuccess.value = true;
-        store.commit("SET_NAME", "admin");
+      CalculatorService.getToken(username.value, password.value).then((data) => {
+        store.commit("SET_TOKEN", data.token);
+        store.commit("SET_NAME", username.value);
         store.commit("SET_STATUS", "Validation success");
+        validationSuccess.value = true;
         setTimeout(() => {
           router.push({ name: "Calculator" });
-        }, 1500);
-      } else {
+        }, 1500);      
+      })
+      .catch(() => {
         validationFailed.value = true;
-        store.commit("SET_STATUS", "Validation failed");
-      }
+        store.commit("SET_STATUS", "Validation failed");        
+      })
     };
 
     return {

@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>ntnu.stud.tobakken</groupId>
-	<artifactId>oving4</artifactId>
+	<artifactId>oving5</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>oving4</name>
 	<description>Demo project for Spring Boot</description>

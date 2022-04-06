@@ -12,15 +12,27 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private CorsConfig corsConfiguration;
+
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
+                .headers()
+                .frameOptions().sameOrigin()
+                .and()
+                .cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
+                .and()
                 .csrf().disable()
                 .addFilterAfter(new JwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .headers()

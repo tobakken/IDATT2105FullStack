@@ -2,13 +2,18 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    name: "",
+    token: "",
+    username: "",
     email: "",
     status: "",
   },
   mutations: {
-    SET_NAME(state, name) {
-      state.name = name;
+    SET_TOKEN(state, token) {
+      state.token = token;
+    },
+
+    SET_NAME(state, username) {
+      state.username = username;
     },
     SET_EMAIL(state, email) {
       state.email = email;

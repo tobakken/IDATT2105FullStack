@@ -1,4 +1,4 @@
-package ntnu.stud.tobakken.oving5.web;
+package ntnu.stud.tobakken.oving5.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("/equation")
 @CrossOrigin
+@RequestMapping("/equation")
 public class EquationController {
 
     Logger LOG = LoggerFactory.getLogger(this.getClass());
@@ -39,7 +39,7 @@ public class EquationController {
         double number1 = Double.parseDouble(eq.get("first_number"));
         String sign = eq.get("sign");
         double number2 = Double.parseDouble(eq.get("second_number"));
-        Long id = Long.parseLong(eq.get("id"));
+        String username = eq.get("username");
 
         System.out.println(number1 + sign + number2);
 
@@ -62,7 +62,7 @@ public class EquationController {
                 break;
         }
         Equation equation = new Equation(String.valueOf(number1), sign, String.valueOf(number2), String.valueOf(res));
-        Optional<User> optionalUser = userRepository.findById(id);
+        Optional<User> optionalUser = userRepository.findById(username);
         optionalUser.ifPresent(equation::setUser);
         equationRepository.save(equation);
 
@@ -70,10 +70,10 @@ public class EquationController {
         return ResponseEntity.ok(res);
     }
 
-    @GetMapping("/history/{id}")
-    public ResponseEntity<List<Equation>> previousCalculation(@PathVariable Long id){
+    @GetMapping("/history/{username}")
+    public ResponseEntity<List<Equation>> previousCalculation(@PathVariable String username){
         LOG.info("Received GET request for history");
-        Optional<List<Equation>> optionalEquation = equationRepository.findAllByUser_Id(id);
+        Optional<List<Equation>> optionalEquation = equationRepository.findAllByUserUsername(username);
 
         return optionalEquation.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.badRequest().body(null));
     }

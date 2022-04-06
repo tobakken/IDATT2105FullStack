@@ -2,3 +2,4 @@
 .DS_STORE
 target/
 .vscode
+node_modules/

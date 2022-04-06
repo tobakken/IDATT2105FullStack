@@ -1,4 +1,4 @@
-package ntnu.stud.tobakken.oving5.web;
+package ntnu.stud.tobakken.oving5.controller;
 
 
 import ntnu.stud.tobakken.oving5.dto.UserDTO;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/user")
 @CrossOrigin
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
