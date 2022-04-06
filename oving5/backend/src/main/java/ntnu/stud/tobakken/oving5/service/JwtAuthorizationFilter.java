@@ -2,7 +2,6 @@ package ntnu.stud.tobakken.oving5.service;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
-import ntnu.stud.tobakken.oving5.security.JwtProvider;
 import ntnu.stud.tobakken.oving5.controller.AuthorisationController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,9 +21,6 @@ import java.util.stream.Collectors;
 
 public class JwtAuthorizationFilter extends OncePerRequestFilter {
     private final String HEADER = "Authorization";
-
-    @Autowired
-    JwtProvider tokenProvider;
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

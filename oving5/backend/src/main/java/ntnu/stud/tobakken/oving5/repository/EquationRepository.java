@@ -7,5 +7,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface EquationRepository extends CrudRepository<Equation, Integer> {
-    Optional<List<Equation>> findAllByUserUsername(String username);
+    Optional<List<Equation>> findAllByUser_Username(String username);
 }

@@ -1,0 +1,30 @@
+2022-04-06 14:56:34 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE FROM TABLE[*] EQUATION 
+WHERE ID = 1"; expected "identifier"; SQL statement:
+DELETE FROM TABLE EQUATION 
+WHERE ID = 1 [42001-200]
+2022-04-06 14:56:42 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE FROM TABLE[*] EQUATION 
+WHERE ID = '1'"; expected "identifier"; SQL statement:
+DELETE FROM TABLE EQUATION 
+WHERE ID = '1' [42001-200]
+2022-04-06 14:56:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE TABLE[*] EQUATION 
+WHERE ID = '1'"; expected "identifier"; SQL statement:
+DELETE TABLE EQUATION 
+WHERE ID = '1' [42001-200]
+2022-04-06 14:56:55 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE TABLE[*] EQUATION 
+WHERE ID = 1"; expected "identifier"; SQL statement:
+DELETE TABLE EQUATION 
+WHERE ID = 1 [42001-200]
+2022-04-06 14:57:04 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM TABLE EQUATION 
+WHERE ID = 1"; expected "identifier"; SQL statement:
+DELETE * FROM TABLE EQUATION 
+WHERE ID = 1 [42001-200]
+2022-04-06 14:57:43 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE FROM TABLE[*] EQUATION 
+WHERE ID = 1"; expected "identifier"; SQL statement:
+DELETE FROM TABLE EQUATION 
+WHERE ID = 1 [42001-200]

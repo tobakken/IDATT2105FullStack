@@ -22,8 +22,6 @@ import javax.servlet.http.HttpServletRequest;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityAdapter extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private CorsConfig corsConfiguration;
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -41,6 +39,7 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
                 .authorizeHttpRequests()
                 .antMatchers("/h2/**").permitAll()
                 .antMatchers(HttpMethod.POST, "/auth/**", "/equation/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/equation/**").permitAll()
                 .anyRequest().authenticated();
     }
 }

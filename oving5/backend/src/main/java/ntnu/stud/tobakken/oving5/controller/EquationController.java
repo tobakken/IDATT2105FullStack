@@ -73,7 +73,7 @@ public class EquationController {
     @GetMapping("/history/{username}")
     public ResponseEntity<List<Equation>> previousCalculation(@PathVariable String username){
         LOG.info("Received GET request for history");
-        Optional<List<Equation>> optionalEquation = equationRepository.findAllByUserUsername(username);
+        Optional<List<Equation>> optionalEquation = equationRepository.findAllByUser_Username(username);
 
         return optionalEquation.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.badRequest().body(null));
     }
