@@ -38,7 +38,7 @@ public class SecurityAdapter extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeHttpRequests()
                 .antMatchers("/h2/**").permitAll()
-                .antMatchers(HttpMethod.POST, "/auth/**", "/equation/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/auth/**", "/equation/**", "/user").permitAll()
                 .antMatchers(HttpMethod.GET, "/equation/**").permitAll()
                 .anyRequest().authenticated();
     }
