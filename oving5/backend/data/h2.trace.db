@@ -28,3 +28,6 @@ org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE F
 WHERE ID = 1"; expected "identifier"; SQL statement:
 DELETE FROM TABLE EQUATION 
 WHERE ID = 1 [42001-200]
+2022-04-08 10:15:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE FROM TABLE[*] EQUATION WHERE ID=1"; expected "identifier"; SQL statement:
+DELETE FROM TABLE EQUATION WHERE ID=1 [42001-200]

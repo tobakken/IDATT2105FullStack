@@ -1,5 +1,4 @@
 ntnu/stud/tobakken/oving5/repository/UserRepository.class
-ntnu/stud/tobakken/oving5/security/CorsConfig.class
 ntnu/stud/tobakken/oving5/entity/User.class
 ntnu/stud/tobakken/oving5/dto/TokenDTO.class
 ntnu/stud/tobakken/oving5/controller/UserController.class
@@ -10,7 +9,6 @@ ntnu/stud/tobakken/oving5/controller/EquationController.class
 ntnu/stud/tobakken/oving5/dto/UserDTO.class
 ntnu/stud/tobakken/oving5/entity/Equation.class
 ntnu/stud/tobakken/oving5/controller/AuthorisationController.class
-ntnu/stud/tobakken/oving5/security/JwtProvider.class
 ntnu/stud/tobakken/oving5/service/JwtAuthorizationFilter.class
 ntnu/stud/tobakken/oving5/security/SecurityAdapter.class
 ntnu/stud/tobakken/oving5/dto/EquationDTO.class

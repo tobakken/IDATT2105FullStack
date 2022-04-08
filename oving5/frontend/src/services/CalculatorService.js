@@ -45,7 +45,6 @@ export default {
     },
 
     async getHistoryCalc() {
-        console.log(store.state.token);
         try {
             const response = await apiClient.get("/equation/history/" + `${store.state.username}`, {
                 headers: {
